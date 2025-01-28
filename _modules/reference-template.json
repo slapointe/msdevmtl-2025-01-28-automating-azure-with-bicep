@@ -1,0 +1,29 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "resourceType": {
+            "defaultValue": "Microsoft.Storage/storageAccounts",
+            "type": "String"
+        },
+        "resourceName": {
+            "defaultValue": "stcontoso",
+            "type": "String"
+        },
+        "apiVersion": {
+            "defaultValue": "2019-06-01",
+            "type": "String"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "resource": {
+            "type": "Object",
+            "value": "[reference(resourceId(parameters('resourceType'), parameters('resourceName')), parameters('apiVersion'))]"
+        },
+        "resourceFull": {
+            "type": "Object",
+            "value": "[reference(resourceId(parameters('resourceType'), parameters('resourceName')), parameters('apiVersion'), 'Full')]"
+        }
+    }
+}
