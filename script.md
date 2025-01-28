@@ -91,3 +91,11 @@ az deployment group create --resource-group bicep-pres-iac --template-file ./4-e
 ```
 az deployment group create --resource-group bicep-pres-iac --template-file .\5-deployment_scripts\main.bicep --verbose
 ```
+
+
+## Demo 6
+```
+az group create --resource-group bicep-pres-iac-ds --location canadacentral --tags owner=stephane.lap@outlook.com department=mvp costCenter=mvp environment=dev
+
+az stack group create --name demoStack --resource-group 'bicep-pres-iac-ds' --template-file ./6-deployment-stacks/main.bicep --action-on-unmanage detachAll  --deny-settings-mode denyDelete
+```
